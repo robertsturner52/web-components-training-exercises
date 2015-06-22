@@ -1,6 +1,3 @@
-body {
-	font-family: arial, sans-serif;
-}
 .hello-badge {
 	width: 600px;
 	min-height: 300px;
@@ -10,17 +7,17 @@ body {
 }
 .hello-badge h1, h2, h3 {
 	margin: 0px;
-	padding: 15px 0 0 0;
+	padding: 5px 0 0 0;
 }
 .hello-badge p {
 	text-align: center;
 	font-size: 48pt;
 	margin: 0;
-	padding: 50px 0 0 0;
+	padding: 40px 0 0 0;
 }
 .badge-header {
 	display: block;
-	height: 80px;
+	height: 90px;
 	line-height: 1em;
 	text-align: center;
 }
@@ -31,5 +28,5 @@ body {
 }
 .badge-footer {
 	display: block;
-	height: 40px;
+	height: 30px;
 }
