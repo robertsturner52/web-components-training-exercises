@@ -1,11 +1,11 @@
 {
-  "name": "hello-web-components",
+  "name": "styleguide",
   "version": "1.0.0",
-  "description": "web-components",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Bob Turner",
+  "author": "",
   "license": "ISC"
 }

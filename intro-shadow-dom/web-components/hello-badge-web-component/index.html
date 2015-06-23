@@ -40,7 +40,7 @@
         <h2>My name is:</h2>
     </div>
     <div class="name-space">
-        <p>Bob</p>
+        <p></p>
     </div>
     <div class="badge-footer">
     </div> 
@@ -55,10 +55,12 @@
             var shadowRoot = this.createShadowRoot();
             var clone = document.importNode(template, true);
             shadowRoot.appendChild(clone);
+            var nameNode = shadowRoot.querySelector('p');
+            nameNode.innerHTML += '<content></content>';
         };
         return document.registerElement(tagName, {
             prototype: customElementPrototype
         });
     };
-    createElement('my-x', 'hello-badge-template')
+    createElement('hello-badge-web-component', 'hello-badge-template')
 </script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Slider</title>
+<style>img {width: 200px;}</style>
+</head>
+<body>
+<h2 id="slider">Slider</h2>
+<div class="my_slider">
+    <h1>Photos of Yosemite Falls</h1>
+    <img style="display: none" src="images/yosemitefalls1.jpg" alt="Yosemite Falls"/>
+    <img style="display: none" src="images/yosemitefalls2.jpg" alt="Yosemite Falls"/>
+    <img style="display: none" src="images/yosemitefalls3.jpg" alt="Yosemite Falls"/>
+    <img style="display: none" src="images/yosemitefalls4.jpg" alt="Yosemite Falls"/>
+</div>
+<script>
+var sliderHost = document.querySelector('.my_slider');
+var shadowRoot = sliderHost.createShadowRoot();
+var images = sliderHost.querySelectorAll('img');
+var imageCounter = 0;
+shadowRoot.innerHTML += '<content select="h1"></content>';
+shadowRoot.innerHTML += '<content select="img"></content>';
+shadowRoot.innerHTML += '<style>::content img {width: 200px;}</style>';
+window.setInterval(function() {
+	images[imageCounter].style.display = 'none';
+	if(imageCounter < images.length -1) {
+		imageCounter++;
+	} else {
+		imageCounter = 0;
+	}
+	images [imageCounter].style.display = 'block';
+}, 1500);
+</script>
+</body>
+</html>

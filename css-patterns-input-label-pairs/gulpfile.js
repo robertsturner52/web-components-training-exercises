@@ -5,13 +5,13 @@ var gulp = require('gulp'),
   webserver = require('gulp-webserver');
 
 gulp.task('jshint', function() {
-  return gulp.src('builds/development/js/**/*.js')
+  return gulp.src('./js/**/*.js')
     .pipe(jshint('./.jshintrc'))
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
 gulp.task('watch', function() {
-  gulp.watch('builds/development/js/**/*.js', ['jshint']);
+  gulp.watch('./js/**/*.js', ['jshint']);
 });
 
 gulp.task('webserver', function() {

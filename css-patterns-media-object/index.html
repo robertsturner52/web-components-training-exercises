@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <title>CSS Patterns: Media Object</title>
+    <style>
+      .media-object {
+        padding: 5px;
+        width: 600px;
+        border: 1px solid red;
+        min-height: 100px;
+      }
+      .media-object h3, p {
+        margin: 0;
+      }
+      .media-object img {
+        float: left;
+        height: 100px;
+        width: 100px;
+        margin: 0;
+        padding-right: 5px;
+      }
+      .is-active {
+        border: 2px solid blue;
+      }
+    </style>
 </head>
 <body>
+<div class="media-object is-active">
+  <img src="image.jpg" alt="pic of guy">
+  <h3>Title of object</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus explicabo nam doloremque! Itaque nulla iste in doloremque, mollitia amet sapiente adipisci, et culpa voluptates, placeat atque! Veniam magnam, suscipit animi?</p>
+</div>
 <!-- Exercise instructions: This exercise will deep-dive into one type
      CSS pattern.
 
