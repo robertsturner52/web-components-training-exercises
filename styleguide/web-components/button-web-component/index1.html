@@ -1,0 +1,32 @@
+<template id="button-template">
+<div>
+<button class="my_button">click me</button>
+</div>
+<style>
+.my_button {
+    font-size: 20pt;
+    color: #fff;
+    width: 100px;
+    height: 100px;
+    border: 3px solid #229;
+    border-radius: 50%;
+    background-image: url("images/button-image-1.jpg");
+}
+</style>
+</template>
+<script>
+    var createElement = function(tagName, templateId, basePrototype) {
+        basePrototype = basePrototype || HTMLElement.prototype;
+        var template = document.currentScript.ownerDocument.getElementById(templateId).content;
+        var customElementPrototype = Object.create(basePrototype);
+        customElementPrototype.createdCallback = function() {
+            var shadowRoot = this.createShadowRoot();
+            var clone = document.importNode(template, true);
+            shadowRoot.appendChild(clone);
+        };
+        return document.registerElement(tagName, {
+            prototype: customElementPrototype
+        });
+    };
+    createElement('button-template', 'button-template');
+</script>

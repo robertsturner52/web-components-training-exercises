@@ -1,11 +1,11 @@
-<template id="hello-badge-web-component">
+<template id="hello-badge-template">
 <div class="my_hello_badge">
     <div class="badge-header">
         <h1>Hello</h1>
         <h2>My name is:</h2>
     </div>
     <div class="name-space">
-        <p>Bob</p>
+        <content></content>
     </div>
     <div class="badge-footer">
     </div> 
@@ -47,9 +47,19 @@
 </style>
 </template>
 <script>
-var helloBadgeHost = document.querySelector('.my_hello_badge');
-var shadowRoot = helloBadgeHost.createShadowRoot();
-var currentScript = document._currentScript ? document._currentScript : document.currentScript;
-var template = currentScript.ownerDocument.getElementById('template').content;
-shadowRoot.appendChild(document.importNode(template, true));
+    var createElement = function(tagName, templateId, basePrototype) {
+        basePrototype = basePrototype || HTMLElement.prototype;
+        var template = document.currentScript.ownerDocument.getElementById(templateId).content;
+        var customElementPrototype = Object.create(basePrototype);
+        customElementPrototype.createdCallback = function() {
+            var shadowRoot = this.createShadowRoot();
+            var clone = document.importNode(template, true);
+            shadowRoot.appendChild(clone);
+        };
+        return document.registerElement(tagName, {
+            prototype: customElementPrototype
+        });
+    };
+    createElement('hello-badge-template', 'hello-badge-template');
 </script>
+

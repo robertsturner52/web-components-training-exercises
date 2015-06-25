@@ -6,16 +6,11 @@
     <title>Web Components Styleguide</title>
     <script src="webcomponents.js"></script>
     <link href="vendor/bootstrap.min.css" rel="stylesheet">
-
     <link href="vendor/docs.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
-    <link rel="stylesheet" href="vendor/styles.css">
-    <link rel="import" href="web-components/hello-badge-web-component/index.html">
     <style>.navbar-brand { font-size: 250%; line-height: 1.2; margin: 20px 0; }</style>
-
 </head>
 <body>
-
 <!-- Docs master nav -->
 <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
     <div class="container">
@@ -24,10 +19,8 @@
         </div>
     </div>
 </header>
-
-
+<!-- Component Groups -->
 <div class="container bs-docs-container">
-
     <div class="row">
         <div class="col-md-9">
             <div class="bs-docs-section">
@@ -40,17 +33,33 @@
                     <h4>Note about component</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquam amet culpa dolores hic itaque magni minima minus mollitia nemo nulla numquam odit provident, quidem ratione rem tempora ullam vitae.</p>
                 </div>
-                <!-- Component title -->
+                
+                <!--Buttom Component-->
+                <h2 id="second-component">Button</h2>
+                <p>This button is customizable.</p>
+                <!-- Component code -->
+                <div><button-template></button-template></div>  
+                <!-- Component code example -->
+                <div class="highlight"><code class="html"><button-template></button-template></code></div>
+              
+                <!--Hello Badge Web Component-->
                 <h2 id="first-component">Hello Badge</h2>
-                <!-- Component description -->
                 <p>This badge is customizable.</p>
                 <!-- Component code -->
-                <div><hello-badge-web-component></hello-badge-web-component></div>  
+                <div><hello-badge-template><p>Bob</p></hello-badge-template></div>  
                 <!-- Component code example -->
-                <div class="highlight"><code class="html"><hello-badge-web-component></hello-badge-web-component></code></div>
+                <div class="highlight"><code class="html"><hello-badge-template></hello-badge-template></code></div>
 
+                <!--Slider Component-->
+                <h2 id="third-component">Slider</h2>
+                <p>This slider is customizable.</p>
+                <!-- Component code -->
+                <div><slider-template><img style="display: none" src="images/yosemitefalls1.jpg" alt="Yosemite Falls"/><img style="display: none" src="images/yosemitefalls2.jpg" alt="Yosemite Falls"/><img style="display: none" src="images/yosemitefalls3.jpg" alt="Yosemite Falls"/><img style="display: none" src="images/yosemitefalls4.jpg" alt="Yosemite Falls"/></slider-template></div>
+                <!-- Component code example -->
+                <div class="highlight"><code class="html"><slider-template><img style="display: none" src="images/yosemitefalls1.jpg" alt="Yosemite Falls"/><img style="display: none" src="images/yosemitefalls2.jpg" alt="Yosemite Falls"/><img style="display: none" src="images/yosemitefalls3.jpg" alt="Yosemite Falls"/><img style="display: none" src="images/yosemitefalls4.jpg" alt="Yosemite Falls"/></slider-template></code></div>
+              
                 <!-- Component title -->
-                <h2 id="second-component">Second Component</h2>
+                <h2 id="fourth-component">Fourth Component</h2>
                 <!-- Component description -->
                 <p>Lorem ipsum.</p>
                 <!-- Component code -->
@@ -65,18 +74,16 @@
         <div class="col-md-3" role="complementary">
             <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
                 <ul class="nav bs-docs-sidenav">
-
-
                     <li class="">
                         <a href="#first-component-group">Component Group</a>
                         <ul class="nav">
                             <li class=""><a href="#first-component">First Component</a></li>
                             <li class=""><a href="#second-component">Second Component</a></li>
-                            <li class=""><a href="#hello-badge">New Component</a></li>
+                            <li class=""><a href="#third-component">Third Component</a></li>
+                            <li class=""><a href="#fourth-component">Fourth Component</a></li>
                         </ul>
                     </li>
                 </ul>
-
             </nav>
         </div>
 
@@ -93,32 +100,30 @@
 
     </div>
 </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
-<script>
 
+<!--JavaScript
+================================================-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+
+<script>
 function escapeHtml(str) {
 var div = document.createElement('div');
 div.appendChild(document.createTextNode(str));
 return div.innerHTML;
 };
-
 var codeNodes = Array.prototype.slice.call(document.querySelectorAll('code'));
 codeNodes.forEach(function(el) { el.innerHTML = escapeHtml(el.innerHTML); });
 codeNodes.forEach(function(el) { hljs.highlightBlock(el); });
 </script>
 
+<link rel="import" href="web-components/button-web-component/index1.html">
+<link rel="import" href="web-components/hello-badge-web-component/index2.html">
+<link rel="import" href="web-components/slider-web-component/index3.html">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-
 <script src="vendor/bootstrap.min.js"></script>
-
-
-
 <script src="vendor/docs.min.js"></script>
-
-
-
-
 
 </body>
 </html>

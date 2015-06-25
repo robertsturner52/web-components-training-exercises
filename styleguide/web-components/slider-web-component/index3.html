@@ -1,0 +1,39 @@
+<template id="slider-template">
+<div class="my_slider">
+    <h1>Photos of Yosemite Falls</h1>
+    <content select="img"></content>
+</div>
+<style>::content img {height: 400px;}</style>
+</template>
+
+
+
+<script>
+var createElement = function(tagName, templateId, basePrototype) {
+    basePrototype = basePrototype || HTMLElement.prototype;
+    var currentScript = document._currentScript ? document._currentScript : document.currentScript;
+
+    var template = currentScript.ownerDocument.getElementById(templateId).content;
+    var customElementPrototype = Object.create(basePrototype);
+    customElementPrototype.createdCallback = function() {
+        var shadowRoot = this.createShadowRoot();
+        var clone = document.importNode(template, true);
+        shadowRoot.appendChild(clone);
+        var images = shadowRoot.querySelector('content').getDistributedNodes();
+        var imageCounter = 0;
+        window.setInterval(function() {
+            images[imageCounter].style.display = 'none';
+            if(imageCounter < images.length -1) {
+                imageCounter++;
+            } else {
+                imageCounter = 0;
+            }
+            images [imageCounter].style.display = 'block';
+        }, 2000);
+    };
+    return document.registerElement(tagName, {
+        prototype: customElementPrototype
+    });
+};
+createElement('slider-template', 'slider-template');
+</script>
